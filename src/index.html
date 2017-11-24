@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="itcDataApp">
+<head>
+  <!-- bower:css -->
+  <!-- bower installed css files will go here... -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- built css files will go here... -->
+  <!-- endinject -->
+
+  <!-- bower:js -->
+  <!-- bower installed scripts will go here... -->
+  <!-- endinject -->
+  <!-- inject:js -->
+  <!-- app scripts will go here... -->
+  <!-- endinject -->
+
+</head>
+<body style="overflow-y: hidden;" ng-controller="itcDataController">
+    <div data-role="charm" id="charmSearch">
+        <h1 class="text-light">Search</h1>
+        <hr class="thin"/>
+        <br />
+        <div class="input-control text full-size">
+            <label>
+                <span class="dropdown-toggle drop-marker-light">Anywhere</span>
+                <ul class="d-menu" data-role="dropdown">
+                    <li><a onclick="setSearchPlace(this)">Anywhere</a></li>
+                    <li><a onclick="setSearchPlace(this)">Options</a></li>
+                    <li><a onclick="setSearchPlace(this)">Files</a></li>
+                    <li><a onclick="setSearchPlace(this)">Internet</a></li>
+                </ul>
+            </label>
+            <input type="text">
+            <button class="button"><span class="mif-search"></span></button>
+        </div>
+    </div>
+
+    <div data-role="charm" id="charmSettings" data-position="top">
+        <h1 class="text-light">Settings</h1>
+        <hr class="thin"/>
+        <br />
+        <div class="schemeButtons">
+            <div class="button square-button tile-area-scheme-dark" data-scheme="dark"></div>
+            <div class="button square-button tile-area-scheme-darkBrown" data-scheme="darkBrown"></div>
+            <div class="button square-button tile-area-scheme-darkCrimson" data-scheme="darkCrimson"></div>
+            <div class="button square-button tile-area-scheme-darkViolet" data-scheme="darkViolet"></div>
+            <div class="button square-button tile-area-scheme-darkMagenta" data-scheme="darkMagenta"></div>
+            <div class="button square-button tile-area-scheme-darkCyan" data-scheme="darkCyan"></div>
+            <div class="button square-button tile-area-scheme-darkCobalt" data-scheme="darkCobalt"></div>
+            <div class="button square-button tile-area-scheme-darkTeal" data-scheme="darkTeal"></div>
+            <div class="button square-button tile-area-scheme-darkEmerald" data-scheme="darkEmerald"></div>
+            <div class="button square-button tile-area-scheme-darkGreen" data-scheme="darkGreen"></div>
+            <div class="button square-button tile-area-scheme-darkOrange" data-scheme="darkOrange"></div>
+            <div class="button square-button tile-area-scheme-darkRed" data-scheme="darkRed"></div>
+            <div class="button square-button tile-area-scheme-darkPink" data-scheme="darkPink"></div>
+            <div class="button square-button tile-area-scheme-darkIndigo" data-scheme="darkIndigo"></div>
+            <div class="button square-button tile-area-scheme-darkBlue" data-scheme="darkBlue"></div>
+            <div class="button square-button tile-area-scheme-lightBlue" data-scheme="lightBlue"></div>
+            <div class="button square-button tile-area-scheme-lightTeal" data-scheme="lightTeal"></div>
+            <div class="button square-button tile-area-scheme-lightOlive" data-scheme="lightOlive"></div>
+            <div class="button square-button tile-area-scheme-lightOrange" data-scheme="lightOrange"></div>
+            <div class="button square-button tile-area-scheme-lightPink" data-scheme="lightPink"></div>
+            <div class="button square-button tile-area-scheme-grayed" data-scheme="grayed"></div>
+        </div>
+    </div>
+    <div class="tile-area tile-area-scheme-dark fg-white" style="height: 100%; max-height: 100% !important;">
+        <h1 class="tile-area-title">信息技术中心</h1>
+        <div class="tile-area-controls">
+            <button class="image-button icon-right bg-transparent bg-hover-dark no-border"><span class="sub-header no-margin text-light">Liu Donghua</span> <span class="icon mif-user"></span></button>
+            <button class="square-button bg-transparent bg-hover-dark no-border" onclick="showCharms('#charmSearch')"><span class="mif-search"></span></button>
+            <button class="square-button bg-transparent bg-hover-dark no-border" onclick="showCharms('#charmSettings')"><span class="mif-cog"></span></button>
+        </div>
+
+        <div class="tile-group double" ng-repeat="category in categories">
+            <span class="tile-group-title">{{ firstKeyName(category) }}</span>
+            <div class="tile-container">
+                <a class="tile {{randomBgColor()}} fg-white" data-role="tile" ng-repeat="item in firstKeyValues(category)">
+                    <div class="tile-content iconic">
+                        <span class="icon {{randomIcon()}}"></span>
+                    </div>
+                    <span class="tile-label">{{ item }}</span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

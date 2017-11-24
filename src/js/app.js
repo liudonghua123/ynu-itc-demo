@@ -15,9 +15,13 @@ angular.module('itcDataApp', [])
         var availableColors = ["bg-indigo","bg-cyan","bg-amber","bg-darkCyan","bg-pink","bg-violet","bg-brown","bg-grayDark","bg-cobalt"];
         return availableColors[parseInt(Math.random() * (availableColors.length))];
     };
-    $http.get('data.json').then(function(data,status,headers,congfig){
+    $scope.yaml = function() {
+        return window.yaml;
+    }
+
+    $http.get('data.yml').then(function(data,status,headers,congfig){
             console.info(data);
-            $scope.categories = data.data.categories;
+            $scope.categories = window.jsyaml.load(data.data).categories;
         }, function(data,status,headers,congfig){
             console.error(data);
             $scope.categories = [];

@@ -75,9 +75,9 @@
         <div class="tile-group double" ng-repeat="category in categories">
             <span class="tile-group-title">{{ firstKeyName(category) }}</span>
             <div class="tile-container">
-                <a class="tile {{randomBgColor()}} fg-white" data-role="tile" ng-repeat="item in firstKeyValues(category)">
+                <a class="tile {{ randomBgColor() }} fg-white" data-role="tile" ng-repeat="item in firstKeyValues(category)">
                     <div class="tile-content iconic">
-                        <span class="icon {{randomIcon()}}"></span>
+                        <span class="icon {{ randomIcon() }}"></span>
                     </div>
                     <span class="tile-label">{{ item }}</span>
                 </a>

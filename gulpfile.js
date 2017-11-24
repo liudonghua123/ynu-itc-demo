@@ -30,11 +30,13 @@ gulp.task('watch', function () {
 });
 
 gulp.task('resources', function () {
+    gulp.src(['./src/**/*', '!./src/index.html'], {base: 'src'})
+        .pipe(gulp.dest('./dist/'));
     return gulp.watch(['./src/**/*'], function (file) {
       gulp.src(['./src/**/*', '!./src/index.html'], {base: 'src'})
             .pipe(gulp.dest('./dist/'));
       });
-});  
+});
 
 gulp.task('serve', ['resources'], function() {
     var server = gls.static(['dist'], 8000);

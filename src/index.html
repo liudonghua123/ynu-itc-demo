@@ -16,7 +16,7 @@
   <!-- endinject -->
 
 </head>
-<body style="overflow-y: hidden;" ng-controller="itcDataController">
+<body style="overflow-y: hidden;" ng-controller="itcDataController as itcData">
     <div data-role="charm" id="charmSearch">
         <h1 class="text-light">Search</h1>
         <hr class="thin"/>
@@ -72,12 +72,12 @@
             <button class="square-button bg-transparent bg-hover-dark no-border" onclick="showCharms('#charmSettings')"><span class="mif-cog"></span></button>
         </div>
 
-        <div class="tile-group double" ng-repeat="category in categories">
-            <span class="tile-group-title">{{ firstKeyName(category) }}</span>
+        <div class="tile-group double" ng-repeat="category in itcData.categories">
+            <span class="tile-group-title">{{ itcData.firstKeyName(category) }}</span>
             <div class="tile-container">
-                <a class="tile {{ randomBgColor() }} fg-white" data-role="tile" ng-repeat="item in firstKeyValues(category)">
+                <a class="tile {{ itcData.randomBgColor() }} fg-white" data-role="tile" ng-repeat="item in itcData.firstKeyValues(category)">
                     <div class="tile-content iconic">
-                        <span class="icon {{ randomIcon() }}"></span>
+                        <span class="icon {{ itcData.randomIcon() }}"></span>
                     </div>
                     <span class="tile-label">{{ item }}</span>
                 </a>
